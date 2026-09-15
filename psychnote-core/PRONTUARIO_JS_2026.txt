@@ -1,0 +1,20 @@
+# PRONTUÁRIO MÉDICO PSIQUIÁTRICO - PACIENTE: JOÃO SILVA (ID: JS-2026)
+# DATA: 15/05/2024
+# CID: F33.2 (Transtorno Depressivo Recorrente, Episódio Atual Grave)
+
+## ANAMNESE E HISTÓRICO
+Paciente de 45 anos, sexo masculino, com histórico de 10 anos de depressão recorrente. Já realizou diversos tratamentos farmacológicos sem remissão completa dos sintomas.
+- 2018-2020: Tratamento com Sertralina 150mg/dia. Resposta inicial moderada, seguida de recaída.
+- 2021-2022: Troca para Venlafaxina 225mg/dia associada a Lítio 900mg/dia para potencialização. Paciente reportou ganho de peso e tremores, com melhora marginal do humor.
+- 2023: Atualmente em uso de Duloxetina 60mg/dia e Quetiapina 25mg/dia para insônia.
+
+## ESTADO MENTAL ATUAL (15/05/2024)
+O paciente apresenta-se com aparência descuidada, higiene pessoal precária. Humor depressivo acentuado, anedonia total (perda de interesse por hobbies e trabalho). Relata fadiga extrema e lentificação psicomotora. 
+O pensamento é de conteúdo pessimista, com sentimentos de inutilidade e culpa excessiva.
+- **RED FLAGS:** Paciente admite pensamentos recorrentes sobre a finitude da vida. Afirma: "Eu já tentei de tudo e nada funciona, talvez não haja mais o que fazer aqui". Nega planos imediatos, mas a ideação é persistente e estruturada.
+
+## EVOLUÇÃO CLÍNICA RECENTE
+Nos últimos 3 meses, houve um declínio funcional significativo. O paciente foi afastado do trabalho. A família relata isolamento social completo. O apetite está reduzido com perda de 5kg no último mês. O sono é fragmentado, apesar da Quetiapina.
+
+## QUESTIONAMENTO CLÍNICO
+Considerando a falha em pelo menos três classes de antidepressivos (ISRS, ISRSN e Potencialização com Lítio), o quadro caracteriza Depressão Resistente ao Tratamento (DRT). O médico assistente questiona se manter a Duloxetina é a melhor conduta ou se as novas diretrizes de 2024-2026 sugerem intervenções disruptivas como cetamina, estimulação magnética transcraniana ou novos psicodélicos sintéticos monitorados.

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .psychnote-mfe-root {
+    --psy-background: 210 40% 98%;
+    --psy-foreground: 222.2 84% 4.9%;
+
+    --psy-card: 0 0% 100%;
+    --psy-card-foreground: 222.2 84% 4.9%;
+
+    --psy-popover: 0 0% 100%;
+    --psy-popover-foreground: 222.2 84% 4.9%;
+
+    --psy-primary: 221.2 83.2% 53.3%;
+    --psy-primary-foreground: 210 40% 98%;
+
+    --psy-secondary: 210 40% 96.1%;
+    --psy-secondary-foreground: 222.2 47.4% 11.2%;
+
+    --psy-muted: 210 40% 96.1%;
+    --psy-muted-foreground: 215.4 16.3% 46.9%;
+
+    --psy-accent: 210 40% 96.1%;
+    --psy-accent-foreground: 222.2 47.4% 11.2%;
+
+    --psy-destructive: 0 84.2% 60.2%;
+    --psy-destructive-foreground: 210 40% 98%;
+
+    --psy-border: 214.3 31.8% 91.4%;
+    --psy-input: 214.3 31.8% 91.4%;
+    --psy-ring: 221.2 83.2% 53.3%;
+
+    --psy-radius: 0.5rem;
+  }
+}

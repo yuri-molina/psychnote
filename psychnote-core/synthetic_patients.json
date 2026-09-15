@@ -1,0 +1,74 @@
+[
+  {
+    "patient_id": "PAC-010",
+    "true_risk_level": "Alto/Iminente",
+    "historical_notes": [
+      "Paciente masculino, 41 anos, com diagnóstico estabelecido de Transtorno Afetivo Bipolar tipo I (CID-10: F31.4). Apresenta histórico de duas tentativas de autoextermínio (TA) graves: a primeira em 2020 por intoxicação exógena com antidepressivos tricíclicos (necessitou de suporte ventilatório e internação em UTI por 4 dias); a segunda em 2022 por enforcamento incompleto, abortado por familiares. Histórico familiar em linha direta positivo para suicídio (tio paterno). Relato de trauma de infância grave associado a abuso físico e negligência emocional."
+    ],
+    "current_note": "HMA: Paciente trazido por vizinho devido a isolamento social e choro copioso há 3 dias. Refere luto recente (morte inesperada da irmã há duas semanas) associado a demissão sumária do emprego. Exame do Estado Mental: Paciente hipoativo, embotamento afetivo evidente, anedonia global. Discurso de conteúdo niilista e desesperança acentuada. Admite ideação ativa estruturada: relata ter escrito cartas de despedida para os filhos e adquirido raticida com intenção de autolesão nesta noite. Conduta: Ajustado carbonato de lítio para 900mg/dia e agendado retorno em ambulatório de psiquiatria para daqui a 15 dias. Liberado para casa sob cuidados de terceiros."
+  },
+  {
+    "patient_id": "PAC-011",
+    "true_risk_level": "Alto/Iminente",
+    "historical_notes": [
+      "Paciente feminina, 34 anos, diagnosticada com Transtorno Depressivo Recorrente Grave (CID-10: F33.2) com padrão de resistência terapêutica. Histórico de uma tentativa prévia de autoextermínio em 2021 por precipitação de altura, resultando em múltiplas fraturas e sequelas ortopédicas. História de dependência de álcool e padrão de abuso de benzodiazepínicos."
+    ],
+    "current_note": "HMA: Apresenta-se à consulta em sofrimento psíquico agudo e intolerável após término abrupto de relacionamento conjugal. Apresenta desesperança grave, anedonia global, apatia e insônia terminal. Durante exame do estado mental, relata plano definitivo de autoextermínio para o próximo fim de semana. Confessa ter acumulado e guardado doses letais de clonazepam e opioides adquiridos ilegalmente. Conduta: Paciente encaminhado em caráter de urgência para internação psiquiátrica involuntária em hospital terciário via SAMU devido ao altíssimo risco iminente de autoextermínio. Acionada rede de apoio familiar imediata para acompanhamento."
+  },
+  {
+    "patient_id": "PAC-012",
+    "true_risk_level": "Alto/Iminente",
+    "historical_notes": [
+      "Paciente masculino, 52 anos, portador de Esquizofrenia Paranoide (CID-10: F20.0). Múltiplas internações psiquiátricas anteriores motivadas por surtos psicóticos com importante hetero e autoagressividade sob influência de alucinações auditivas imperativas. Histórico de tentativa de autoextermínio grave em 2019 sob comando das vozes delirantes."
+    ],
+    "current_note": "HMA: Paciente relata que as vozes imperativas retornaram com extrema intensidade há uma semana, ordenando que ele se jogue da ponte do metrô para purificar seus pecados. Traz consigo um diário detalhado onde traçou o mapa da estação e o horário de menor fluxo de pessoas para executar o plano. Sem crítica de realidade. Conduta: Realizado aumento de Risperidona para 6mg/dia e prescrito SOS em caso de agitação psicomotora. Fornecida receita médica e orientado acompanhamento ambulatorial na próxima semana com o psiquiatra de referência. Paciente recebeu alta ambulatorial acompanhado do irmão."
+  },
+  {
+    "patient_id": "PAC-020",
+    "true_risk_level": "Moderado",
+    "historical_notes": [
+      "Paciente feminina, 28 anos, com diagnóstico de Transtorno de Personalidade Limítrofe (Borderline - CID-10: F60.3). Histórico de automutilações superficiais repetitivas em membros superiores e episódios de impulsividade na adolescência. Realiza psicoterapia intermitente. Nega tentativas anteriores de autoextermínio de alta letalidade, porém apresenta ideação passiva crônica e flutuante."
+    ],
+    "current_note": "HMA: Paciente comparece à consulta queixando-se de aumento da labilidade emocional após conflito interpessoal recente no ambiente de trabalho. Refere pensamentos recorrentes de que 'seria melhor desaparecer' ou 'não acordar no dia seguinte', contudo nega categoricamente qualquer planejamento estruturado ou intenção imediata de agir contra si mesma. Cita como fatores de proteção fundamentais o amor incondicional pelo filho de 2 anos e o suporte de sua mãe, com quem reside. Conduta: Realizado contato telefônico com a mãe da paciente para orientar supervisão indireta e restrição estrita de medicamentos e objetos cortantes no domicílio. Estabelecido contrato terapêutico verbal de não-lesão. Agendado retorno ambulatorial de curto prazo para daqui a 7 dias."
+  },
+  {
+    "patient_id": "PAC-021",
+    "true_risk_level": "Moderado",
+    "historical_notes": [
+      "Paciente masculino, 45 anos, com histórico de Transtorno Depressivo Maior Recorrente (CID-10: F33.1) sob tratamento com Sertralina 100mg/dia. Histórico de estresse financeiro significativo há 2 anos, época em que apresentou sintomas depressivos com prejuízo funcional, porém sem internações psiquiátricas ou gestos suicidas."
+    ],
+    "current_note": "HMA: Relata ressurgimento de pensamentos passivos de morte associados a insônia inicial de rebote e cansaço no último mês. Nega planos ativos de autoextermínio ou aquisição de meios letais. Afirma com convicção que jamais tentaria contra a própria vida devido a crenças religiosas profundas sobre o pecado do suicídio. Exame do Estado Mental: Humor deprimido, ansioso, afeto congruente, ideação suicida sem planejamento ou intenção. Conduta: Aumentada a dose de Sertralina para 150mg/dia e introduzido Zolpidem 10mg/dia à noite por período curto. Realizada consulta conjunta com a esposa (que o acompanhava), pactuado contrato terapêutico verbal e orientada a supervisão na administração da medicação diária. Retorno programado em 10 dias."
+  },
+  {
+    "patient_id": "PAC-022",
+    "true_risk_level": "Moderado",
+    "historical_notes": [
+      "Paciente feminina, 50 anos, portadora de Transtorno de Ansiedade Generalizada (CID-10: F41.1) associado a quadro de fibromialgia refratária. Descreve oscilações depressivas frequentes causadas pelo manejo da dor crônica, com ideação passiva esporádica relacionada à exaustão física."
+    ],
+    "current_note": "HMA: Relata piora dos sintomas álgicos na última quinzena, acompanhada de sentimentos de inutilidade e pensamentos de morte passivos ('gostaria que Deus me levasse'). Nega terminantemente intenção ativa de autoextermínio e expressa temor da morte. Destaca a excelente aliança terapêutica com a equipe de psicologia e a presença diária e afetuosa das irmãs como fatores determinantes de proteção. Conduta: Otimizada terapia farmacológica com ajuste de Amitriptilina para 25mg à noite para modulação da dor. Realizado atendimento com a irmã da paciente, acordado pacto de segurança domiciliar com instruções de apoio em caso de exacerbação álgica e agendado retorno em 14 dias."
+  },
+  {
+    "patient_id": "PAC-030",
+    "true_risk_level": "Baixo",
+    "historical_notes": [
+      "Paciente masculino, 30 anos, com histórico de Episódio Depressivo Leve (CID-10: F32.0) tratado exclusivamente com psicoterapia Cognitivo-Comportamental por 6 meses em 2024, alcançando remissão total dos sintomas. Sem histórico pessoal ou familiar de tentativas de autoextermínio ou de hospitalização de qualquer natureza."
+    ],
+    "current_note": "HMA: Comparece ao consultório referindo cansaço físico persistente, letargia e dificuldades de concentração nas últimas duas semanas, associados a sobrecarga de trabalho acadêmico. Relata que, nos momentos de maior fadiga, surge o pensamento passivo de que 'seria bom dormir e só acordar quando as provas passassem'. Nega veementemente intenção de se machucar ou qualquer plano de autoextermínio. Demonstra planos para o futuro e motivação para reiniciar a psicoterapia. Conduta: Diagnosticado com episódio depressivo leve. Prescrita introdução de Escitalopram 10mg/dia e encaminhado para psicoterapia. Retorno em 30 dias."
+  },
+  {
+    "patient_id": "PAC-031",
+    "true_risk_level": "Baixo",
+    "historical_notes": [
+      "Paciente feminina, 62 anos, com histórico de Transtorno Distímico (CID-10: F34.1) de longa data, mantendo acompanhamento psiquiátrico estável. Sem histórico de crises agudas, surtos psicóticos ou ideação suicida ativa. Nega histórico de tentativas prévias."
+    ],
+    "current_note": "HMA: Queixa-se de intensificação discreta da desmotivação e fadiga crônica, acompanhada de sintomas somáticos como dores musculares difusas e cefaleia tensional. Relata que ocasionalmente se percebe como um fardo para a filha com quem mora devido a suas limitações de mobilidade. Expressa o sentimento de que 'às vezes cansa viver sentindo dor, queria só poder descansar'. Questionada de forma direta, nega qualquer planejamento ou desejo ativo de morte, destacando planos de vivenciar o nascimento da neta. Conduta: Mantida a Fluoxetina 20mg/dia. Solicitada avaliação laboratorial de rotina (painel tireoidiano e vitamina D) e orientado retorno em 30 dias."
+  },
+  {
+    "patient_id": "PAC-032",
+    "true_risk_level": "Baixo",
+    "historical_notes": [
+      "Paciente feminina, 38 anos, sem histórico de transtornos psiquiátricos prévios. Histórico de ansiedade situacional pontual durante a gestação há 5 anos, resolvida sem a necessidade de intervenção psicofarmacológica."
+    ],
+    "current_note": "HMA: Relata quadro de exaustão profunda, insônia de conciliação e dor física difusa após recente promoção e aumento da carga de trabalho corporativo. Sente-se muito cansada e refere que, às vezes, pensa 'seria mais fácil se eu pudesse sumir por um tempo para não ter que lidar com isso'. Nega categoricamente desejo de morte, planejamento ou tentativas de autolesão. Apresenta afeto reativo, embora fatigada. Conduta: Caracterizado quadro de esgotamento profissional (Síndrome de Burnout). Orientadas medidas de higiene do sono e emitido atestado para afastamento laboral de 7 dias para descanso. Encaminhada para psicoterapia e retorno agendado em 30 dias."
+  }
+]
