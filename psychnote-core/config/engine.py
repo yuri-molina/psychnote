@@ -87,13 +87,15 @@ class PsychiatricAIEngine:
                 "Defina a chave no arquivo .env (https://aistudio.google.com/apikey)."
             )
 
-        resolved_model = model_name or os.getenv("GEMINI_MODEL_NAME", "gemini-3.8-flash")
+        resolved_model = model_name or os.getenv("GEMINI_MODEL_NAME", "gemini-3.6-flash")
         print(f"[*] Inicializando Engine (Gemini): {resolved_model}")
 
         return ChatGoogleGenerativeAI(
             model=resolved_model,
             google_api_key=api_key,
             temperature=temperature,
+            max_retries=3,
+            timeout=30,
         )
 
 

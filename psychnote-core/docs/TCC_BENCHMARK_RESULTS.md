@@ -281,3 +281,38 @@ O ciclo evidenciou um *trade-off* irreconciliável no modelo quantizado 8B: cada
 
 Para contornar as restrições corporativas comuns de sistemas operacionais bloqueados por políticas de TI (como AppLocker ou WDAC no Windows Host), a arquitetura adotou a **Conteinerização no WSL (Windows Subsystem for Linux)**.
 *   O WSL provê uma sandbox Linux emulada que permite instalar o ecossistema local do Ollama diretamente na pasta do usuário (`~/.local/bin/ollama`), sem demandar elevação de privilégios de administrador (UAC) ou homologação formal do instalador `.exe` no host Windows.
+
+---
+
+## 5. Benchmark Comparativo: Edge AI (Ollama Local) vs Cloud API (Google Gemini 3.6 Flash)
+
+Para avaliar a viabilidade de uma arquitetura híbrida (Provedor 1 = Local Ollama vs Provedor 2 = Remoto Gemini) e aferir a curva de desempenho do pipeline de auditoria sob modelos de maior escala computacional, executamos o mesmo lote de 9 prontuários sintéticos ([run_evaluation.py](file:///mnt/c/Repos/Local/MBA/psychnote-core/run_evaluation.py)) alternando o backend para o **Google Gemini 3.6 Flash**.
+
+### 5.1. Tabela Comparativa de Desempenho
+
+| Métrica / Coorte | Ollama Local (`llama3:8b-instruct-q4_K_M`) | Google Gemini (`gemini-3.6-flash`) | Análise Comparativa & Implicações Clínicas |
+| :--- | :---: | :---: | :--- |
+| **Backend / Infraestrutura** | Edge AI (Local CPU / WSL2) | Cloud API (Google Infra) | Ollama roda 100% offline em hardware restrito; Gemini exige conexão e transmissão externa. |
+| **Conformidade LGPD** | ✅ **100% LGPD-Compliant** | ⚠️ Somente Dados Sintéticos | Ollama é seguro para dados reais de pacientes; Gemini deve ser restrito a benchmarks ou dados anonimizados. |
+| **Tempo Total do Lote (9 casos)** | 387.00s (~43s/caso) | **164.25s** (~18.25s/caso) | **Gemini ~2.36x mais rápido** na latência de geração de ponta a ponta (nós 1 a 4). |
+| **Latência Média por Prontuário** | 43.00s | **18.25s** | Gemini reduz o tempo total de inferência do pipeline LangGraph em 57.5%. |
+| **Acurácia Global** | **77.8%** (7/9 acertos) | 66.7% (6/9 acertos) | Ollama obteve maior acurácia global devido ao ajuste Falso Positivo Estrutural / v2-final no prompt zero-shot. |
+| **Coorte Alto / Iminente (3 casos)** | **100.0%** (3/3 acertos) | **100.0%** (3/3 acertos) | **Empate Perfeito:** Ambos os modelos garantiram 100% de sensibilidade no Risco Alto (zero falsos negativos graves). |
+| **Coorte Moderado (3 casos)** | **100.0%** (3/3 acertos) | 0.0% (0/3 acertos) | **Ollama Superior:** Gemini tendeu ao viés de sub-triagem no risco moderado, classificando ideação passiva com fatores protetores como Baixo Risco. |
+| **Coorte Baixo Risco (3 casos)** | 33.3% (1/3 acertos) | **100.0%** (3/3 acertos) | **Gemini Superior:** Gemini teve 100% de especificidade no risco baixo (zero falsos alarmes), enquanto Ollama fez *over-triage* conservador de 2 casos para Moderado. |
+
+### 5.2. Análise Qualitativa dos Erros e Vieses de Modelo
+
+1. **Sensibilidade em Risco Crítico (100% em ambos):**
+   Ambos os modelos classificaram corretamente todos os casos de Risco Alto/Iminente (`PAC-010`, `PAC-011`, `PAC-012`), provando que a árvore de auditoria determinística (Nós 3 e 4) e as âncoras textuais do prompt garantem tolerância zero a falsos negativos de urgência vital.
+
+2. **Viés de Sub-triagem no Risco Moderado (Gemini 3.6 Flash):**
+   O Gemini 3.6 Flash rebaixou os 3 casos de Risco Moderado (`PAC-020`, `PAC-021`, `PAC-022`) para Risco Baixo. O raciocínio do Gemini priorizou rigorosamente a **negação verbal explícita de planejamento ativo** e a presença de **fatores de proteção** (como fé religiosa ou suporte familiar), desconsiderando a instabilidade dos diagnósticos subjacentes (Borderline, Depressão Recorrente e Fibromialgia com piora álgica).
+
+3. **Comportamento Conservador (*Over-triage*) do Ollama Local:**
+   O `llama3:8b` via Ollama tendeu a classificar casos limítrofes da coorte Baixo (`PAC-031` Distimia e `PAC-032` Burnout) como Moderado. Sob a ótica médica de *safety-critical AI*, o comportamento do Ollama é preferível ao do Gemini: é mais seguro encaminhar um paciente de baixo risco para reavaliação (falso positivo conservador) do que liberar um paciente de risco moderado (falso negativo de sub-triagem).
+
+### 5.3. Recomendações Arquiteturais para o TCC
+* **Produção / Edge AI (Default):** Manter o **Ollama local (`llama3:8b-instruct-q4_K_M`)** como provedor padrão (`llm_provider=1`), garantindo 100% de conformidade com a LGPD, privacidade no Edge e sensibilidade superior nas coortes de risco alto e moderado.
+* **Pesquisa / Benchmark (Opcional):** Utilizar o **Google Gemini (`gemini-3.6-flash`)** como provedor secundário (`llm_provider=2`) para auditorias de lote de alta velocidade em ambientes com dados não-identificados ou sintéticos.
+
