@@ -19,15 +19,15 @@
 
 | Entregável | Arquivo | Dado-chave para o TCC |
 |-----------|---------|----------------------|
-| LLM local otimizado | [`config/engine.py`](file:///mnt/c/Repos/Local/MBA/config/engine.py) | `num_thread=10`, `num_ctx=4096`, modelo `llama3:8b-instruct-q4_K_M` |
-| Prompt v2-final (triagem) | [`analytics/clinical_monitor.py`](file:///mnt/c/Repos/Local/MBA/analytics/clinical_monitor.py) | Thresholds CFM/Botega/OMS, 3 eixos (Baixo/Moderado/Alto-Iminente) |
-| Avaliação em lote | [`docs/TCC_BENCHMARK_RESULTS.md`](file:///mnt/c/Repos/Local/MBA/docs/TCC_BENCHMARK_RESULTS.md) | Acurácia 77.8%, sensibilidade 100% nas coortes críticas |
-| Benchmark de threads | [`run_thread_benchmark.py`](file:///mnt/c/Repos/Local/MBA/run_thread_benchmark.py) | SLA ~40s CPU / 32.43s medido nos testes E2E |
-| API FastAPI | [`main.py`](file:///mnt/c/Repos/Local/MBA/main.py) + [`src/api/v1/triage.py`](file:///mnt/c/Repos/Local/MBA/src/api/v1/triage.py) | `POST /api/v1/triage`, schemas Pydantic, Swagger em `/docs` |
-| Grafo LangGraph | [`orchestrator/rag_logic.py`](file:///mnt/c/Repos/Local/MBA/orchestrator/rag_logic.py) | 4 nós: `analyze_risk → retrieve_history → audit_conduct → generate_report` |
-| ChromaDB + isolamento | [`database/patient_manager.py`](file:///mnt/c/Repos/Local/MBA/database/patient_manager.py) | Coleção única `clinical_records` + metadata filtering por `patient_id` |
-| Dataset sintético | [`synthetic_patients.json`](file:///mnt/c/Repos/Local/MBA/synthetic_patients.json) | 9 pacientes: 3 Alto/Iminente, 3 Moderado, 3 Baixo |
-| Suíte de testes | [`tests/`](file:///mnt/c/Repos/Local/MBA/tests/) | 26 testes (22 unit + 4 E2E), 0 falhas |
+| Dual LLM Engine (Local + Cloud) | [`config/engine.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/config/engine.py) | Ollama (`llama3:8b-instruct-q4_K_M`, `num_thread=10`) + Gemini (`gemini-3.6-flash`) |
+| Prompt v2-final (triagem) | [`analytics/clinical_monitor.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/analytics/clinical_monitor.py) | Thresholds CFM/Botega/OMS, 3 eixos (Baixo/Moderado/Alto-Iminente) |
+| Benchmark Comparativo (Ollama vs Gemini) | [`docs/TCC_BENCHMARK_RESULTS.md`](file:///mnt/c/Repos/Local/MBA/psychnote-core/docs/TCC_BENCHMARK_RESULTS.md) | Seção 3 (Ollama v1-v4), Seção 5 (E2E), Seção 6 (Ciclo Gemini v1-v4) |
+| Benchmark de threads | [`run_thread_benchmark.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/run_thread_benchmark.py) | SLA ~40s CPU / 32.43s medido nos testes E2E |
+| API FastAPI Assíncrona | [`main.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/main.py) + [`src/api/v1/triage.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/src/api/v1/triage.py) | `POST /api/v1/triage`, `POST /api/v1/triage/async`, histórico rápido em <50ms |
+| Grafo LangGraph | [`orchestrator/orchestrator_graph.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/orchestrator/orchestrator_graph.py) | 4 nós: `analyze_risk → retrieve_history → audit_conduct → generate_report` |
+| Isolamento LGPD / Persistência | [`database/patient_manager.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/database/patient_manager.py) | Isolamento por `patient_id` com SQLite (`clinical.db`) |
+| Dataset sintético | [`synthetic_patients.json`](file:///mnt/c/Repos/Local/MBA/psychnote-core/synthetic_patients.json) | 9 pacientes: 3 Alto/Iminente, 3 Moderado, 3 Baixo |
+| Suíte de testes | [`tests/`](file:///mnt/c/Repos/Local/MBA/psychnote-core/tests/) | 33 testes (29 passed, 4 skipped E2E live), 0 falhas |
 
 ---
 

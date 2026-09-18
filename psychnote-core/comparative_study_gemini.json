@@ -1,0 +1,542 @@
+{
+  "EXP-01_Prompting_Paradigms": {
+    "Zero-Shot Regras Estritas": {
+      "accuracy_pct": 66.7,
+      "acertos": 6,
+      "total": 9,
+      "avg_latency_s": 5.91,
+      "matriz": {
+        "Alto/Iminente": 3,
+        "Moderado": 0,
+        "Baixo": 3
+      },
+      "details": [
+        {
+          "patient_id": "PAC-010",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 6.342736482620239,
+          "justification": "Paciente apresenta risco alto/iminente de autoextermínio caracterizado por atos preparatórios concretos (escrita de cartas de despedida para os filhos), aquisição de meio letal (raticida) e intenção declarada de agir em curto prazo (nesta noite), em contexto de múltiplos estressores graves recentes."
+        },
+        {
+          "patient_id": "PAC-011",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 4.863861322402954,
+          "justification": "O paciente apresenta risco alto/iminente de autoextermínio devido à presença de plano suicida concreto com data definida (próximo fim de semana) e atos preparatórios graves, caracterizados pela aquisição e acúmulo de doses letais de medicamentos (clonazepam e opioides)."
+        },
+        {
+          "patient_id": "PAC-012",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 4.594744920730591,
+          "justification": "O paciente apresenta risco alto/iminente de suicídio caracterizado por sintomas psicóticos graves (alucinações auditivas imperativas) combinados a um planejamento suicida altamente concreto e detalhado (método, mapa da estação de metrô e horário especificados no diário) e ausência de crítica de realidade."
+        },
+        {
+          "patient_id": "PAC-020",
+          "true_risk": "Moderado",
+          "pred_risk": "Baixo",
+          "is_correct": false,
+          "latency_s": 8.426347017288208,
+          "justification": "Paciente apresenta ideação passiva de morte de caráter situacional desencadeada por conflito recente no trabalho, sem ideação suicida ativa, intenção ou planejamento estruturado. Conta com fatores de proteção consistentes (filho pequeno e suporte familiar residente) e ausência de histórico prévio ou diagnóstico psiquiátrico grave relatado, enquadrando-se em baixo risco conforme as diretrizes."
+        },
+        {
+          "patient_id": "PAC-021",
+          "true_risk": "Moderado",
+          "pred_risk": "Baixo",
+          "is_correct": false,
+          "latency_s": 7.929367303848267,
+          "justification": "O paciente apresenta ideação passiva de morte, sem ideação ativa, planejamento ou intenção de autoextermínio. Apresenta fatores de proteção fortes e bem consolidados, como convicções religiosas e apoio familiar presente, enquadrando-se no critério de baixo risco segundo os parâmetros estipulados."
+        },
+        {
+          "patient_id": "PAC-022",
+          "true_risk": "Moderado",
+          "pred_risk": "Baixo",
+          "is_correct": false,
+          "latency_s": 5.3521568775177,
+          "justification": "Paciente apresenta apenas ideação passiva de morte associada a aumento de quadro álgico e sentimentos de inutilidade, negando terminantemente intenção ativa ou planejamento. Expressa temor da morte e possui importantes fatores protetores, incluindo excelente vínculo com a equipe de psicologia e apoio familiar constante, sem histórico de tentativas prévias ou diagnóstico psiquiátrico grave descompensado, configurando baixo risco de suicídio."
+        },
+        {
+          "patient_id": "PAC-030",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 4.879060983657837,
+          "justification": "O paciente apresenta ideação passiva pontual e de caráter situacional relacionada à sobrecarga acadêmica. Nega intenção, planejamento ou aquisição de meios letais. Apresenta fatores de proteção bem definidos (planos futuros e engajamento no tratamento) e diagnóstico de episódio depressivo leve sem histórico de autoextermínio, preenchendo todos os critérios para Risco Baixo."
+        },
+        {
+          "patient_id": "PAC-031",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 4.882913112640381,
+          "justification": "A paciente apresenta apenas ideação passiva de morte pontual e relacionada a dores crônicas, sem presença de ideação ativa, intenção ou planejamento suicida. Conta com fatores protetores robustos (vínculo familiar e planos futuros) e ausência de diagnóstico psiquiátrico grave instável ou histórico de tentativas, enquadrando-se em Risco Baixo."
+        },
+        {
+          "patient_id": "PAC-032",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 5.910084009170532,
+          "justification": "O paciente apresenta ideação passiva pontual e situacional ('desejo de sumir') decorrente de estresse e esgotamento profissional (Burnout). Nega expressa e categoricamente qualquer intenção, planejamento ou histórico de autolesão. Apresenta afeto reativo e ausência de diagnóstico psiquiátrico grave ativo ou histórico prévio de tentativas de autoextermínio, preenchendo todos os critérios para classificação de Risco Baixo."
+        }
+      ]
+    },
+    "Chain-of-Thought (Reasoning-in-Schema)": {
+      "accuracy_pct": 88.9,
+      "acertos": 8,
+      "total": 9,
+      "avg_latency_s": 7.99,
+      "matriz": {
+        "Alto/Iminente": 3,
+        "Moderado": 3,
+        "Baixo": 2
+      },
+      "details": [
+        {
+          "patient_id": "PAC-010",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 5.375927686691284,
+          "justification": "Paciente encontra-se em risco iminente de suicídio. Apresenta ideação suicida ativa e altamente estruturada, associada a atos preparatórios concretos (escrita de cartas de despedida e aquisição de raticida) com plano para execução na mesma noite. A conduta de alta ambulatorial com retorno em 15 dias é absolutamente inadequada para o nível de risco apresentado; o caso indica necessidade de intervenção de urgência/emergência e indicação sumária de internação psiquiátrica ou observação intensiva sob supervisão contínua 24h."
+        },
+        {
+          "patient_id": "PAC-011",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 5.822974443435669,
+          "justification": "O paciente preenche critérios para Risco Alto/Iminente de autoextermínio devido à presença de ideação suicida ativa estruturada com prazo estipulado, somada a comportamento preparatório explícito (estocagem ilegal de fármacos potencialmente letais). O quadro de dor psíquica intolerável e desesperança grave justifica plenamente a indicação de internação psiquiátrica de urgência para salvaguarda da vida."
+        },
+        {
+          "patient_id": "PAC-012",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 12.283845663070679,
+          "justification": "Paciente apresenta risco alto e iminente de suicídio impulsionado por alucinações auditivas imperativas para autoextermínio, planejamento concreto mapeado e perda do juízo crítico. O quadro exige intervenção de emergência e contenção intensiva, sendo gravemente inadequada a alta ambulatorial."
+        },
+        {
+          "patient_id": "PAC-020",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 10.159631729125977,
+          "justification": "Quadro caracterizado por ideação passiva de morte recorrente e labilidade emocional reativa a estressor agudo. Apesar da negação de planejamento e da presença de fortes fatores de proteção interpessoais, a necessidade de orientação para restrição de meios letais no domicílio e supervisão familiar justifica a classificação de Risco Moderado, demandando acompanhamento ambulatorial em curto prazo."
+        },
+        {
+          "patient_id": "PAC-021",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 6.445209264755249,
+          "justification": "O paciente apresenta ideação passiva de morte em contexto de exacerbação de sintomas depressivos e ansiosos. Apesar de negar intencionalidade e contar com importantes fatores protetivos (religiosidade e suporte familiar), o quadro clínico ativo justifica a classificação de Risco Moderado, demandando acompanhamento próximo, ajuste medicamentoso e supervisão das medicações pela esposa."
+        },
+        {
+          "patient_id": "PAC-022",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 11.817272901535034,
+          "justification": "Paciente com quadro de dor crônica descompensada e sintomas depressivos (inutilidade e ideação de morte passiva) enquadra-se no nível de risco MODERADO, conforme diretrizes clínicas para dor crônica/transtornos afetivos com ideação persistente. Embora não haja conduta preparatória ou intenção ativa no momento, e haja forte suporte sociofamiliar e terapêutico, o quadro exige monitoramento próximo em curto prazo (14 dias) e ajuste terapêutico."
+        },
+        {
+          "patient_id": "PAC-030",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 6.3429343700408936,
+          "justification": "Quadro compatível com episódio depressivo leve com ideação passiva de fuga/desejo de repouso associado ao estresse acadêmico. Ausência de ideação suicida ativa, de comportamentos preparatórios ou de histórico de risco. Paciente receptivo ao tratamento farmacológico e psicoterapêutico, justificando a classificação de Risco Baixo."
+        },
+        {
+          "patient_id": "PAC-031",
+          "true_risk": "Baixo",
+          "pred_risk": "Moderado",
+          "is_correct": false,
+          "latency_s": 8.481882572174072,
+          "justification": "A paciente enquadra-se no nível de Risco Moderado conforme as diretrizes clínicas estabelecidas, visto que apresenta dor crônica com sintomas depressivos e presença de ideação passiva de morte ('desejo de descansar' / sentimento de fardo). Embora haja fatores protetores consistentes que afastem o risco de atos iminentes, o quadro exige monitoramento contínuo, ajuste do manejo da dor e reavaliação da resposta ao antidepressivo."
+        },
+        {
+          "patient_id": "PAC-032",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 5.22263503074646,
+          "justification": "Paciente apresenta estresse ocupacional agudo com ideação passiva de fuga situacional, sem planejamento, atos preparatórios ou ideação ativa de morte. Enquadra-se no perfil de baixo risco suicida, sendo adequada a conduta de suporte psicoterápico, higiene do sono e afastamento temporário do trabalho."
+        }
+      ]
+    },
+    "Few-Shot In-Context Learning": {
+      "accuracy_pct": 88.9,
+      "acertos": 8,
+      "total": 9,
+      "avg_latency_s": 6.38,
+      "matriz": {
+        "Alto/Iminente": 3,
+        "Moderado": 3,
+        "Baixo": 2
+      },
+      "details": [
+        {
+          "patient_id": "PAC-010",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 10.518952369689941,
+          "justification": "Paciente em risco alto e iminente de suicídio, apresentando ideação ativa altamente estruturada, meio letal já adquirido, atos preparatórios concluídos e intenção explícita de agir na própria noite. O quadro é agravado por desesperança profunda e múltiplos gatilhos estressores recentes."
+        },
+        {
+          "patient_id": "PAC-011",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 4.9760422706604,
+          "justification": "O paciente apresenta ideação suicida ativa com plano estruturado e estocagem de meios de alta letalidade, associado a desesperança grave e estressor agudo recente, caracterizando risco alto/iminente de autoextermínio e necessidade de internação psiquiátrica de urgência."
+        },
+        {
+          "patient_id": "PAC-012",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 3.190551280975342,
+          "justification": "Paciente apresenta ideação suicida ativa estruturada com plano detalhado, motivada por alucinações auditivas imperativas e com ausência de crítica de realidade, o que caracteriza risco alto/iminente de autoextermínio."
+        },
+        {
+          "patient_id": "PAC-020",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 4.977846145629883,
+          "justification": "Paciente apresenta ideação passiva de morte recorrente desencadeada por estressor interpessoal recente. Embora negue intenção ativa e plano, e possua fatores de proteção sólidos (filho e suporte materno), a persistência dos pensamentos e as condutas preventivas necessárias (orientação de restrição de meios e acompanhamento em curto prazo) caracterizam Risco Moderado."
+        },
+        {
+          "patient_id": "PAC-021",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 10.824594020843506,
+          "justification": "O paciente apresenta exacerbação de sintomas depressivos com ressurgimento de pensamentos passivos de morte e insônia. A ausência de ideação ativa, aliada a importantes fatores de proteção como convicções religiosas, suporte da esposa com supervisão medicamentosa e aliança terapêutica preservada, enquadra o caso na categoria de risco Moderado, demandando acompanhamento psiquiátrico próximo."
+        },
+        {
+          "patient_id": "PAC-022",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 3.6042861938476562,
+          "justification": "A exacerbação álgica associada a sentimentos de inutilidade e desejo passivo de morte configura sofrimento psíquico relevante e risco moderado, contudo atenuado por forte suporte familiar, aliança terapêutica, temor da morte e pacto de segurança estabelecido."
+        },
+        {
+          "patient_id": "PAC-030",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 6.2594075202941895,
+          "justification": "Paciente apresenta episódio depressivo leve reativo à sobrecarga acadêmica com pensamentos passivos de fuga/desejo de descanso. Nega intenção ou planejamento suicida e demonstra importantes fatores de proteção, como perspectiva de futuro e engajamento no tratamento, configurando um nível de risco baixo."
+        },
+        {
+          "patient_id": "PAC-031",
+          "true_risk": "Baixo",
+          "pred_risk": "Moderado",
+          "is_correct": false,
+          "latency_s": 6.9210264682769775,
+          "justification": "Paciente em tratamento de quadro depressivo/somático apresenta ideação passiva de morte e sentimento de autopercepção como um fardo associado a dores crônicas. A ausência de ideação ativa e a presença de fatores protetivos significativos (perspectiva do nascimento da neta) afastam o risco iminente, porém o sofrimento psíquico e a ideação passiva configuram Risco Moderado, exigindo acompanhamento ambulatorial contínuo."
+        },
+        {
+          "patient_id": "PAC-032",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 6.178714036941528,
+          "justification": "Quadro de esgotamento profissional (Síndrome de Burnout) associado a pensamentos situacionais de evasão/fuga devido à sobrecarga de trabalho. Ausência de ideação de morte ativa ou passiva, com negação categórica de intencionalidade ou planejamento suicida, caracterizando risco baixo."
+        }
+      ]
+    }
+  },
+  "EXP-03_Safety_Asymmetry": {
+    "Zero-Shot Regras Estritas": {
+      "over_triage_fp": 0,
+      "sub_triage_fn": 3,
+      "clinical_safety_score": 66.7,
+      "accuracy_pct": 66.7
+    },
+    "Chain-of-Thought (Reasoning-in-Schema)": {
+      "over_triage_fp": 1,
+      "sub_triage_fn": 0,
+      "clinical_safety_score": 98.9,
+      "accuracy_pct": 88.9
+    },
+    "Few-Shot In-Context Learning": {
+      "over_triage_fp": 1,
+      "sub_triage_fn": 0,
+      "clinical_safety_score": 98.9,
+      "accuracy_pct": 88.9
+    }
+  },
+  "EXP-02_Context_Scaling": {
+    "Nível A (Nota Isolada)": {
+      "accuracy_pct": 66.7,
+      "acertos": 6,
+      "total": 9,
+      "avg_latency_s": 5.53,
+      "matriz": {
+        "Alto/Iminente": 3,
+        "Moderado": 0,
+        "Baixo": 3
+      },
+      "details": [
+        {
+          "patient_id": "PAC-010",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 8.865193605422974,
+          "justification": "Paciente enquadra-se no nível de risco Alto/Iminente por apresentar plano estruturado com intenção imediata (nesta noite), atos preparatórios (cartas de despedida) e aquisição recente de meio letal (raticida), deflagrado por múltiplos estressores psicossociais graves (luto e perda do emprego) em contexto de desesperança e anedonia."
+        },
+        {
+          "patient_id": "PAC-011",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 5.537686109542847,
+          "justification": "Paciente apresenta risco Alto/Iminente de suicídio devido à presença de ideação suicida ativa com plano concreto, data definida e aquisição/estocagem de meios altamente letais. O sofrimento psíquico intenso e a desesperança grave corroboram a necessidade de intervenção imediata e internação psiquiátrica de urgência."
+        },
+        {
+          "patient_id": "PAC-012",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 3.269212245941162,
+          "justification": "Paciente enquadra-se no risco Alto/Iminente devido à presença de alucinações auditivas de comando determinando o autoextermínio, associadas a um plano altamente concreto e estruturado (mapeamento de local e horários), além da falta de crítica de realidade."
+        },
+        {
+          "patient_id": "PAC-020",
+          "true_risk": "Moderado",
+          "pred_risk": "Baixo",
+          "is_correct": false,
+          "latency_s": 3.5556137561798096,
+          "justification": "Paciente apresenta ideação passiva de morte de caráter estritamente situacional decorrente de estressor interpessoal recente, com negação consistente de planejamento ou intenção suicida ativa. Não há histórico prévio de transtornos psiquiátricos graves e a paciente conta com importantes fatores de proteção familiares (filho e mãe), enquadrando-se no nível de risco baixo."
+        },
+        {
+          "patient_id": "PAC-021",
+          "true_risk": "Moderado",
+          "pred_risk": "Baixo",
+          "is_correct": false,
+          "latency_s": 5.246472120285034,
+          "justification": "O paciente apresenta ideação passiva de morte associada a quadro recente de insônia e sintomas depressivo-ansiosos, sem histórico pregresso de transtornos graves ou tentativas anteriores. Nega categoricamente intenção ou plano de autoextermínio, respaldado por forte fator de proteção religioso. Conta com bom suporte familiar, rede de apoio engajada no tratamento e aceitação de contrato de segurança verbal, enquadrando-se nos critérios de baixo risco de suicídio."
+        },
+        {
+          "patient_id": "PAC-022",
+          "true_risk": "Moderado",
+          "pred_risk": "Baixo",
+          "is_correct": false,
+          "latency_s": 7.562374114990234,
+          "justification": "Paciente apresenta ideação de morte estritamente passiva associada a quadro álgico, sem histórico de transtornos psiquiátricos graves pregressos. Há negação consistente de planos ou intenção ativa, acompanhada de temor da morte e fortes fatores de proteção familiares e terapêuticos, preenchendo os critérios para Risco Baixo."
+        },
+        {
+          "patient_id": "PAC-030",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 6.893653154373169,
+          "justification": "Paciente sem histórico prévio de transtornos psiquiátricos apresenta episódio depressivo leve com ideação passiva de morte estritamente situacional associada ao estresse acadêmico. Nega categoricamente planos ou intenções suicidas e apresenta importantes fatores de proteção, como perspectivas futuras e boa atitude em relação ao tratamento psicoterápico, justificando a classificação de baixo risco conforme as diretrizes."
+        },
+        {
+          "patient_id": "PAC-031",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 4.5638251304626465,
+          "justification": "A paciente não possui histórico prévio de transtornos psiquiátricos graves e apresenta ideação passiva de morte de caráter situacional, vinculada à dor crônica e limitações físicas. Diante da negação consistente de ideação ativa e da presença de fator de proteção relevante (expectativa pelo nascimento da neta), o quadro se enquadra na categoria de baixo risco."
+        },
+        {
+          "patient_id": "PAC-032",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 4.286201238632202,
+          "justification": "Paciente apresenta ideação passiva estritamente situacional no contexto de esgotamento profissional (Síndrome de Burnout), sem histórico de transtornos psiquiátricos prévios. Nega categoricamente intenção, planejamento ou desejo ativo de morte, com afeto reativo, caracterizando risco de suicídio Baixo."
+        }
+      ]
+    },
+    "Nível B (Nota + Histórico Resumido)": {
+      "accuracy_pct": 88.9,
+      "acertos": 8,
+      "total": 9,
+      "avg_latency_s": 6.18,
+      "matriz": {
+        "Alto/Iminente": 3,
+        "Moderado": 3,
+        "Baixo": 2
+      },
+      "details": [
+        {
+          "patient_id": "PAC-010",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 7.2002153396606445,
+          "justification": "Paciente enquadra-se no nível de risco Alto/Iminente por apresentar ideação suicida ativa estruturada com intenção de agir na mesma noite, além da realização de atos preparatórios (cartas de despedida) e aquisição de meios letais (raticida). O quadro é agravado pelo histórico longitudinal de tentativas anteriores de alta gravidade (UTI e enforcamento), transtorno bipolar grave, histórico familiar direto de suicídio e estressores recentes psicossociais agudos (luto e desemprego)."
+        },
+        {
+          "patient_id": "PAC-011",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 8.509911298751831,
+          "justification": "Paciente com Transtorno Depressivo Recorrente Grave, histórico de tentativa prévia de alta letalidade e comorbidade com uso de substâncias. Apresenta-se em crise aguda com desesperança grave e ideação suicida ativa, possuindo plano estruturado e meios letais estocados (clonazepam e opioides), configurando risco alto/iminente de autoextermínio e indicando internação psiquiátrica de urgência."
+        },
+        {
+          "patient_id": "PAC-012",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 4.695125102996826,
+          "justification": "O paciente é classificado como risco Alto/Iminente por apresentar alucinações auditivas de comando ordenando o autoextermínio, associadas a um plano suicida concreto e elaborado (com mapeamento do local e definição de horários). O quadro é agravado pela ausência de crítica quanto às suas alterações do pensamento e pelo histórico prévio de tentativa grave de suicídio sob influência de sintomas psicóticos semelhantes."
+        },
+        {
+          "patient_id": "PAC-020",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 8.44547438621521,
+          "justification": "Paciente com diagnóstico de Transtorno de Personalidade Limítrofe em quadro de exacerbação de labilidade emocional após fator estressor interpessoal, apresentando ideação passiva de morte recorrente. Nega planejamento estruturado ou intenção ativa. Conforme os critérios clínicos estabelecidos, a presença de transtorno psiquiátrico prévio relevante ativo associado à ideação de morte enquadra o caso em Risco Moderado. Identificados importantes fatores de proteção (maternidade e apoio familiar), com condutas de restrição de meios e suporte ativados."
+        },
+        {
+          "patient_id": "PAC-021",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 5.117403268814087,
+          "justification": "Paciente com diagnóstico prévio e ativo de Transtorno Depressivo Maior Recorrente apresentando sintomas depressivos exacerbadors e ideação passiva de morte no último mês. De acordo com os critérios clínicos, a presença de transtorno psiquiátrico ativo associado à ideação passiva enquadra o paciente em Risco Moderado, a despeito da negação de planejamento ativo e da presença de fortes fatores de proteção (religiosidade e apoio familiar)."
+        },
+        {
+          "patient_id": "PAC-022",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 7.79428243637085,
+          "justification": "Paciente portadora de TAG e dor crônica apresentando exacerbação álgica associada a sentimentos de inutilidade e ideação passiva de morte ('gostaria que Deus me levasse'). Nega intenção ou planejamento ativo de autoextermínio e possui sólidos fatores de proteção (rede de apoio familiar presente e aliança terapêutica). Enquadra-se no nível de risco Moderado segundo os critérios definidos, por apresentar transtorno psiquiátrico prévio/condição crônica ativa combinada a ideação de morte passiva."
+        },
+        {
+          "patient_id": "PAC-030",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 4.6034064292907715,
+          "justification": "O paciente apresenta ideação passiva de morte estritamente situacional relacionada a sobrecarga acadêmica, sem intenção ou planejamento suicida ativo. Possui histórico prévio de transtorno leve em remissão completa, sem histórico de atos impulsivos ou graves. Apresenta sólidos fatores de proteção, incluindo motivação para tratamento e perspectiva de futuro, enquadrando-se no nível de risco baixo."
+        },
+        {
+          "patient_id": "PAC-031",
+          "true_risk": "Baixo",
+          "pred_risk": "Moderado",
+          "is_correct": false,
+          "latency_s": 4.991655588150024,
+          "justification": "A paciente apresenta Transtorno Distímico ativo em conjunto com ideação passiva de morte ('queria só poder descansar') e sentimento de ser um fardo. Conforme os critérios estabelecidos, a combinação de transtorno psiquiátrico prévio relevante com ideação passiva enquadra o caso na categoria de Risco Moderado, a despeito dos fatores de proteção presentes e da negação de intenção ativa."
+        },
+        {
+          "patient_id": "PAC-032",
+          "true_risk": "Baixo",
+          "pred_risk": "Baixo",
+          "is_correct": true,
+          "latency_s": 4.28887939453125,
+          "justification": "Paciente sem histórico de transtornos psiquiátricos graves, apresentando ideação passiva estritamente situacional relacionada ao esgotamento profissional (Síndrome de Burnout). Nega categoricamente intenção, planejamento ou desejo ativo de morte, com afeto reativo e adesão às condutas propostas, preenchendo os critérios para Risco Baixo de acordo com os diretrizes e limiares clínicos."
+        }
+      ]
+    },
+    "Nível C (Nota + Histórico Longitudinal Denso)": {
+      "accuracy_pct": 66.7,
+      "acertos": 6,
+      "total": 9,
+      "avg_latency_s": 7.47,
+      "matriz": {
+        "Alto/Iminente": 3,
+        "Moderado": 3,
+        "Baixo": 0
+      },
+      "details": [
+        {
+          "patient_id": "PAC-010",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 6.987379550933838,
+          "justification": "O paciente apresenta Risco Alto/Iminente segundo os critérios clínicos estabelecidos, caracterizado por ideação suicida ativa estruturada, atos preparatórios explícitos (confecção de cartas de despedida) e aquisição recente de meio letal (raticida) com planejamento de execução para a mesma noite. O quadro é gravemente agravado por fatores conjunturais recentes (luto por morte da irmã e demissão) e por um histórico longitudinal gravíssimo, incluindo Transtorno Afetivo Bipolar tipo I, tentativas prévias de alta letalidade com necessidade de UTI e histórico familiar positivo para suicídio."
+        },
+        {
+          "patient_id": "PAC-011",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 8.601836442947388,
+          "justification": "A paciente é classificada em risco Alto/Iminente de autoextermínio por apresentar ideação suicida ativa com plano estruturado e data definida, acompanhada da aquisição e acúmulo de meios altamente letais (clonazepam e opioides). O quadro é intensificado por sofrimento agudo e desesperança grave após evento estressor recente, além de um histórico longitudinal de tentativa grave prévia por precipitação de altura, transtorno afetivo grave e abuso de substâncias, preenchendo todos os critérios para intervenção e internação psiquiátrica imediata."
+        },
+        {
+          "patient_id": "PAC-012",
+          "true_risk": "Alto/Iminente",
+          "pred_risk": "Alto/Iminente",
+          "is_correct": true,
+          "latency_s": 6.470671653747559,
+          "justification": "O paciente apresenta Risco Alto/Iminente de autoextermínio, enquadrando-se perfeitamente nos critérios de alta gravidade devido à presença de alucinações auditivas imperativas de extrema intensidade ordenando o ato, aliadas a um plano estruturado e concreto (mapa e horários definidos em diário). O quadro é agravado pelo histórico longitudinal de tentativas prévias motivadas por sintomas psicóticos idênticos, diagnóstico de Esquizofrenia Paranoide e falta de crítica de realidade."
+        },
+        {
+          "patient_id": "PAC-020",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 5.051675081253052,
+          "justification": "A paciente possui transtorno psiquiátrico prévio relevante e histórico de comportamento suicida/autolesivo, e atualmente apresenta ideação passiva de morte reativa a estressor recente. Conforme os critérios estabelecidos, a presença de transtorno psiquiátrico ativo e ideação de morte (mesmo sem planejamento imediato) enquadra o caso em risco Moderado. Fatores de proteção importantes foram identificados e medidas de segurança domiciliar foram orientadas."
+        },
+        {
+          "patient_id": "PAC-021",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 7.952103853225708,
+          "justification": "O paciente apresenta Transtorno Depressivo Maior Recorrente em atividade e ideação passiva de morte, associado a um histórico longitudinal grave com tentativas prévias e internações. No entanto, no momento atual, nega ideação ativa, planos concretos ou aquisição de meios letais, contando com forte rede de apoio familiar, contrato terapêutico pactuado e fatores de proteção religiosos consistentes. Seguindo os critérios definidos, a presença de transtorno prévio relevante ativo acompanhado de ideação passiva caracteriza um nível de risco Moderado."
+        },
+        {
+          "patient_id": "PAC-022",
+          "true_risk": "Moderado",
+          "pred_risk": "Moderado",
+          "is_correct": true,
+          "latency_s": 8.954482078552246,
+          "justification": "A paciente apresenta risco moderado de acordo com as diretrizes e thresholds clínicos, pois possui transtorno psiquiátrico e dores crônicas refratárias ativos, além de histórico prévio relevante com tentativas de suicídio (2018-2024) e internações, em consonância com a presença atual de ideação passiva de morte ('gostaria que Deus me levasse'). A negação de intenção ativa, o temor da morte e os sólidos fatores de proteção (suporte familiar e boa aliança terapêutica) afastam o risco alto/iminente no momento, justificando o manejo ambulatorial com pacto de segurança e reavaliação em 14 dias."
+        },
+        {
+          "patient_id": "PAC-030",
+          "true_risk": "Baixo",
+          "pred_risk": "Moderado",
+          "is_correct": false,
+          "latency_s": 9.103436708450317,
+          "justification": "O paciente apresenta um episódio depressivo leve ativo associado à ideação passiva de morte. Apesar de apresentar expressivos fatores de proteção (planos futuros, negação de intenção/plano e boa aliança terapêutica), a presença de transtorno psiquiátrico ativo associada à ideação de morte em paciente com histórico psiquiátrico relevante enquadra o caso na categoria de Risco Moderado segundo os critérios estabelecidos."
+        },
+        {
+          "patient_id": "PAC-031",
+          "true_risk": "Baixo",
+          "pred_risk": "Moderado",
+          "is_correct": false,
+          "latency_s": 6.26870584487915,
+          "justification": "Paciente idosa com transtorno psiquiátrico prévio, histórico de tentativas de suicídio e internações, apresentando ideação passiva de morte manifestada pelo desejo de descanso e sentimento de sobrecarregar a família. Embora negue ideação ativa, planos imediatos ou intenção concreta, e apresente importantes fatores de proteção como o nascimento da neta, a combinação de antecedentes psiquiátricos relevantes com ideação passiva atual preenche o critério de risco Moderado."
+        },
+        {
+          "patient_id": "PAC-032",
+          "true_risk": "Baixo",
+          "pred_risk": "Moderado",
+          "is_correct": false,
+          "latency_s": 7.797380447387695,
+          "justification": "A paciente apresenta expressão de desejo passivo de evasão ('sumir por um tempo') associada a estresse laboral e exaustão. Embora a nota clínica atual caracterize o quadro como Síndrome de Burnout com negação categórica de ideação ativa ou planejamento, o histórico longitudinal revela antecedentes graves, incluindo tentativas prévias de suicídio e internações psiquiátricas recentes (2018-2024). De acordo com os critérios clínicos estabelecidos, a presença de histórico prévio relevante atrelada à ideação passiva eleva a classificação de risco para Moderado, requerendo acompanhamento psiquiátrico e psicoterapêutico rigoroso."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "provider": "Cloud AI (Google Gemini 3.6 Flash)",
+    "provider_tag": "gemini",
+    "timestamp": "2026-09-17T23:56:08Z",
+    "total_cases": 9
+  }
+}

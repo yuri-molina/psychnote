@@ -43,3 +43,12 @@ Use este índice como ponto de entrada para qualquer tarefa de leitura, geraçã
 | Artefato | Tipo | Descrição |
 |---|---|---|
 | [`contracts/triage-async-api.md`](./contracts/triage-async-api.md) | Contract | Contratos dos endpoints `POST /api/v1/triage/async`, `GET /api/v1/patients/{id}/history` e do Webhook Callback |
+
+### Pesquisa, Benchmarks e Estudo Comparativo (TCC)
+
+| Artefato | Tipo | Descrição |
+|---|---|---|
+| [`../docs/TCC_MAPA_DOCUMENTACAO_E_CRONOLOGIA.md`](../docs/TCC_MAPA_DOCUMENTACAO_E_CRONOLOGIA.md) | Master Index | Mapa mestre de cronologia, linhagem e de-para entre capítulos do TCC e arquivos do repositório |
+| [`../docs/TCC_BENCHMARK_RESULTS.md`](../docs/TCC_BENCHMARK_RESULTS.md) | Benchmark | Resultados da calibração de threads e ciclo iterativo de prompt v1→v4 (Ollama e Gemini) |
+| [`../docs/TCC_ESTUDO_COMPARATIVO_EDGE_VS_CLOUD.md`](../docs/TCC_ESTUDO_COMPARATIVO_EDGE_VS_CLOUD.md) | Study | Relatório formal consolidado do estudo comparativo Edge AI vs. Cloud AI (EXP-01 a EXP-04) |
+| [`../docs/TCC_SESSAO_HANDOFF.md`](../docs/TCC_SESSAO_HANDOFF.md) | Handoff | Roteiro de continuidade da escrita da dissertação de MBA |

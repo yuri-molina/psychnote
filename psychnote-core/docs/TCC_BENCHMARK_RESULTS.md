@@ -1,5 +1,9 @@
 # Resultados de Performance e Validação Clínica (TCC / MBA PoC)
 
+> [!NOTE]
+> **Navegação & Linhagem da Pesquisa:**  
+> Este documento registra as **Fases 2 e 4** da pesquisa (calibração de hardware e ciclo de engenharia de prompt v1→v4 no Ollama e Gemini). Para o mapa completo de linhagem e de-para dos capítulos, consulte [`docs/TCC_MAPA_DOCUMENTACAO_E_CRONOLOGIA.md`](./TCC_MAPA_DOCUMENTACAO_E_CRONOLOGIA.md). Para o relatório consolidado dos experimentos aprofundados (Fase 5), consulte [`docs/TCC_ESTUDO_COMPARATIVO_EDGE_VS_CLOUD.md`](./TCC_ESTUDO_COMPARATIVO_EDGE_VS_CLOUD.md).
+
 Este documento consolida os achados empíricos de engenharia de hardware e validação clínica obtidos nos testes da plataforma **PsicRE-AI**. Estes dados servem como base para a seção de **Resultados e Discussão** do Trabalho de Conclusão de Curso (TCC), demonstrando a viabilidade técnica e os desafios clínicos da solução Edge AI.
 
 ---
@@ -316,3 +320,125 @@ Para avaliar a viabilidade de uma arquitetura híbrida (Provedor 1 = Local Ollam
 * **Produção / Edge AI (Default):** Manter o **Ollama local (`llama3:8b-instruct-q4_K_M`)** como provedor padrão (`llm_provider=1`), garantindo 100% de conformidade com a LGPD, privacidade no Edge e sensibilidade superior nas coortes de risco alto e moderado.
 * **Pesquisa / Benchmark (Opcional):** Utilizar o **Google Gemini (`gemini-3.6-flash`)** como provedor secundário (`llm_provider=2`) para auditorias de lote de alta velocidade em ambientes com dados não-identificados ou sintéticos.
 
+---
+
+## 6. Ciclo de Prompt Engineering com Google Gemini 3.6 Flash — Análise Comparativa
+
+Esta seção replica o ciclo iterativo de refinamento de prompt documentado na Seção 3 (executado originalmente com `llama3:8b-instruct-q4_K_M` via Ollama), desta vez usando o **Google Gemini 3.6 Flash** como backend. O objetivo é identificar se os mesmos fenômenos mecanísticos (*lost-in-the-middle*, *prompt seesaw*, viés de negação verbal) se manifestam em um modelo de maior escala e arquitetura distinta. Script: [`run_prompt_version_eval.py`](file:///mnt/c/Repos/Local/MBA/psychnote-core/run_prompt_version_eval.py), mesmos 9 prontuários sintéticos e 5 versões de prompt idênticas às da Seção 3.
+
+---
+
+### 6.1. Resultados por Versão de Prompt (Gemini 3.6 Flash)
+
+#### v1 — Linha de Base | Acurácia Gemini: **66.7%** (vs 44.4% Ollama)
+
+| Coorte | Gemini | Ollama | Casos errados (Gemini) |
+|:---|:---:|:---:|:---|
+| Alto/Iminente | 3/3 (100%) | 1/3 (33%) | — |
+| Moderado | 0/3 (0%) | 0/3 (0%) | PAC-020, PAC-021, PAC-022 → Baixo |
+| Baixo | 3/3 (100%) | 3/3 (100%) | — |
+
+**Latência média:** 8.82s | **Tempo total:** 79.37s
+
+**Achado diferencial:** O Gemini acertou os 3 Alto/Iminente mesmo com o prompt mais fraco — o Ollama errou PAC-010 e PAC-012. O Gemini resistiu ao override "nega = Baixo" para evidências comportamentais inequívocas (cartas de despedida, raticida adquirido, data definida, diário com plano). Ambos zeraram nos Moderados pelo mesmo viés de negação verbal.
+
+---
+
+#### v2 | Acurácia Gemini: **66.7%** (vs 77.8% Ollama)
+
+| Coorte | Gemini | Ollama | Casos errados (Gemini) |
+|:---|:---:|:---:|:---|
+| Alto/Iminente | 3/3 (100%) | 3/3 (100%) | — |
+| Moderado | 0/3 (0%) | 3/3 (100%) | PAC-020, PAC-021, PAC-022 → Baixo |
+| Baixo | 3/3 (100%) | 1/3 (33%) | — |
+
+**Latência média:** 8.65s | **Tempo total:** 77.83s
+
+**Achado diferencial:** As 4 regras de Moderado que desbloquearam o Ollama (44.4% → 77.8%) **não produziram efeito algum no Gemini**. O Gemini manteve exatamente o mesmo padrão de erro da v1. Evidencia que o viés de negação verbal do Gemini é mais profundo e não corrigível por regras textuais simples.
+
+---
+
+#### v3 — Sem Regressão no Gemini | Acurácia Gemini: **66.7%** (vs 66.7% Ollama)
+
+| Coorte | Gemini | Ollama | Casos errados (Gemini) |
+|:---|:---:|:---:|:---|
+| Alto/Iminente | 3/3 (100%) | 2/3 (67%) | — |
+| Moderado | 0/3 (0%) | 3/3 (100%) | PAC-020, PAC-021, PAC-022 → Baixo |
+| Baixo | 3/3 (100%) | 1/3 (33%) | — |
+
+**Latência média:** 8.41s | **Tempo total:** 75.65s
+
+**Achado diferencial — o mais importante do ciclo:** O Ollama regrediu de 77.8% → 66.7% nesta versão por *Lost-in-the-Middle* (perdeu PAC-010 com o prompt ~30% maior). O Gemini **não regrediu** — manteve 100% no Alto/Iminente com o mesmo prompt expandido. Demonstra que o fenômeno *Lost-in-the-Middle* é um **artefato de modelos quantizados ≤8B**, não uma limitação universal de LLMs em triagem clínica.
+
+---
+
+#### v4 — Sem Regressão Cruzada | Acurácia Gemini: **66.7%** (vs 66.7% Ollama)
+
+| Coorte | Gemini | Ollama | Casos errados (Gemini) |
+|:---|:---:|:---:|:---|
+| Alto/Iminente | 3/3 (100%) | 2/3 (67%) | — |
+| Moderado | 0/3 (0%) | 1/3 (33%) | PAC-020, PAC-021, PAC-022 → Baixo |
+| Baixo | 3/3 (100%) | 3/3 (100%) | — |
+
+**Latência média:** 9.39s | **Tempo total:** 84.49s
+
+**Achado diferencial:** O Ollama exibiu *regressão cruzada* — o bloco FALSO POSITIVO ESTRUTURAL corrigiu o Baixo mas degradou os Moderados. O Gemini não sofreu nenhum efeito: já classificava PAC-021 e PAC-022 como Baixo desde v1. Confirma que a "regressão cruzada" do Ollama era um artefato de instruções conflitantes no modelo pequeno.
+
+---
+
+#### v2-final — Versão de Produção | Acurácia Gemini: **77.8%** (= 77.8% Ollama, padrões de erro opostos)
+
+| Coorte | Gemini | Ollama | Casos errados (Gemini) |
+|:---|:---:|:---:|:---|
+| Alto/Iminente | 3/3 (100%) | 3/3 (100%) | — |
+| Moderado | 1/3 (33%) | 3/3 (100%) | PAC-021 → Baixo, PAC-022 → Baixo |
+| Baixo | 3/3 (100%) | 1/3 (33%) | — |
+
+**Latência média:** 9.80s | **Tempo total:** 88.19s
+
+**Achado diferencial:** Ambos atingem 77.8%, mas com perfis de erro clínico **opostos**. O Ollama erra no Baixo (over-triage conservador — clinicamente seguro). O Gemini erra no Moderado (sub-triagem — clinicamente perigoso: PAC-021 e PAC-022 saem sem acompanhamento adequado). O único Moderado recuperado pelo Gemini foi PAC-020 (Borderline com stressor situacional agudo explícito). PAC-021 (proteção religiosa intensa) e PAC-022 (fibromialgia + temor da morte + negação verbal firme) permanecem como falsos negativos — o RLHF clínico do Gemini pondera fatores de proteção verbais acima dos diagnósticos de base instável.
+
+---
+
+### 6.2. Tabela Comparativa Evolutiva: Gemini vs Ollama
+
+| Versão | Ollama Alto/Im. | Ollama Mod. | Ollama Baixo | **Acc. Ollama** | Gemini Alto/Im. | Gemini Mod. | Gemini Baixo | **Acc. Gemini** |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **v1** | 33% | 0% | 100% | 44.4% | **100%** | 0% | **100%** | **66.7%** |
+| **v2** | **100%** | **100%** | 33% | **77.8%** | **100%** | 0% | **100%** | 66.7% |
+| **v3** | 67% | **100%** | 33% | 66.7% | **100%** | 0% | **100%** | 66.7% |
+| **v4** | 67% | 33% | **100%** | 66.7% | **100%** | 0% | **100%** | 66.7% |
+| **v2-final** | **100%** | **100%** | 33% | **77.8%** | **100%** | 33% | **100%** | **77.8%** |
+
+**Latência média:** Ollama ~40s/caso | Gemini ~9.3s/caso (**4.4× mais rápido**)
+
+---
+
+### 6.3. Achados Mecanísticos
+
+**1. Imunidade ao "Lost-in-the-Middle" (Gemini)**
+O fenômeno que causou a regressão do Ollama na v3 não se manifestou no Gemini em nenhuma das 5 versões. Confirma que *Lost-in-the-Middle* é um artefato de modelos pequenos quantizados (≤8B parâmetros), não uma limitação universal do prompt engineering clínico.
+
+**2. "Prompt Seesaw" ausente no Gemini — por rigidez de viés, não por robustez**
+O Ollama exibiu *prompt seesaw* (correção em uma coorte causa regressão em outra). O Gemini não exibiu esse fenômeno porque o viés de negação verbal nos Moderados é suficientemente forte para ser imune a todas as versões testadas. O modelo "trava" nos 66.7% por rigidez do viés — não por capacidade superior.
+
+**3. Dois tetos de acurácia com padrões de erro opostos**
+Ambos chegam a 77.8% com v2-final, mas o Ollama erra no Baixo (over-triage, falsos positivos — clinicamente seguro) e o Gemini erra no Moderado (sub-triagem, falsos negativos — clinicamente perigoso). Para *safety-critical AI* em psiquiatria, o perfil de erro do Ollama é preferível.
+
+**4. Resistência diferenciada ao viés de negação verbal**
+O Gemini resistiu ao override "nega = Baixo" apenas para evidências comportamentais inequívocas. Para ideação moderada com negação verbal (PAC-021, PAC-022), o Gemini capitulou ao viés em todas as versões. Sugere que o RLHF do Gemini foi treinado com forte peso em negações verbais como fator de proteção — clinicamente inadequado para transtornos instáveis onde a negação pode ser ambivalente ou defensiva.
+
+---
+
+### 6.4. Recomendação Arquitetural — Reforçada
+
+| Critério | Ollama Local | Gemini Cloud |
+|:---|:---:|:---:|
+| Conformidade LGPD | ✅ Sempre | ❌ Nunca (dados reais) |
+| Acurácia Alto/Iminente (v2-final) | 100% | 100% |
+| Acurácia Moderado (v2-final) | **100%** | 33% |
+| Perfil de erro clínico | Over-triage (**seguro**) | Sub-triagem (**perigoso**) |
+| Latência por caso | ~43s | ~9.8s |
+| Recomendação | ✅ **Produção** | 🔬 Benchmark sintético |
+
+A recomendação da Seção 5.3 é mantida e reforçada: **Ollama como backend obrigatório de produção**. O Gemini não pode substituir o Ollama na triagem clínica real — tanto por restrições de LGPD quanto por perfil de erro clínico adverso (sub-triagem sistemática em Moderados).
